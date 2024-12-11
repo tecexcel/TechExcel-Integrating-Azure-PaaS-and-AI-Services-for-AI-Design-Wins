@@ -14,7 +14,7 @@ public class DatabaseService : IDatabaseService
     /// <summary>
     /// Get all hotels from the database.
     /// </summary>
-    [KernelFunction]
+    [KernelFunction("get_hotels")]
     [Description("Get all hotels.")]
     public async Task<IEnumerable<Hotel>> GetHotels()
     {
@@ -44,7 +44,7 @@ public class DatabaseService : IDatabaseService
     /// <summary>
     /// Get a specific hotel from the database.
     /// </summary>
-    [KernelFunction]
+    [KernelFunction ("get_bookings_for_hotel")]
     [Description("GetBookingsForHotel.")]
     public async Task<IEnumerable<Booking>> GetBookingsForHotel(int hotelId)
     {
@@ -77,7 +77,7 @@ public class DatabaseService : IDatabaseService
     /// <summary>
     /// Get bookings for a specific hotel that are after a specified date.
     /// </summary>
-    [KernelFunction]
+    [KernelFunction("get_bookings_by_hotel_and_minimum_date")]
     [Description("GetBookingsByHotelAndMinimumDate.")]
     public async Task<IEnumerable<Booking>> GetBookingsByHotelAndMinimumDate(int hotelId, DateTime dt)
     {
@@ -107,7 +107,7 @@ public class DatabaseService : IDatabaseService
 
         return bookings;
     }
-    [KernelFunction]
+    [KernelFunction("get_bookings_missing_hotel_rooms")]
     [Description("GetBookingsMissingHotelRooms.")]
     public async Task<IEnumerable<Booking>> GetBookingsMissingHotelRooms()
     {
@@ -151,7 +151,7 @@ public class DatabaseService : IDatabaseService
 
         return bookings;
     }
-    [KernelFunction]
+    [KernelFunction("get_bookings_with_multiple_hotel_rooms")]
     [Description("GetBookingsWithMultipleHotelRooms.")]
     public async Task<IEnumerable<Booking>> GetBookingsWithMultipleHotelRooms()
     {
